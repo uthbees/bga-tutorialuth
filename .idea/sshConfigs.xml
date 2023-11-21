@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="1.studio.boardgamearena.com" id="27f5609c-aa5f-47d7-9cad-814f8d1c9e2e" port="22" customName="BGA Studio" nameFormat="CUSTOM" username="uthbees" useOpenSSHConfig="true">
+        <option name="customName" value="BGA Studio" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9f152872-b0bd-49d2-8f0c-15acdda8ce6d" name="BGA Studio" url="">
+        <fileTransfer rootFolder="/tutorialuth" accessType="SFTP" host="1.studio.boardgamearena.com" port="22" sshConfigId="27f5609c-aa5f-47d7-9cad-814f8d1c9e2e" sshConfig="BGA Studio">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
