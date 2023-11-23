@@ -24,24 +24,20 @@
  *
  */
 
-require_once( APP_BASE_PATH."view/common/game.view.php" );
+require_once APP_BASE_PATH . 'view/common/game.view.php';
 
-class view_tutorialuth_tutorialuth extends game_view
-{
-    protected function getGameName()
-    {
+class view_tutorialuth_tutorialuth extends game_view {
+    protected function getGameName() {
         // Used for translations and stuff. Please do not modify.
-        return "tutorialuth";
+        return 'tutorialuth';
     }
 
-  	function build_page( $viewArgs )
-  	{
-  	    // Get players & players number
+    function build_page($viewArgs) {
+        // Get players & players number
         $players = $this->game->loadPlayersBasicInfos();
-        $players_nbr = count( $players );
+        $players_nbr = count($players);
 
         /*********** Place your code below:  ************/
-
 
         /*
 
@@ -83,19 +79,17 @@ class view_tutorialuth_tutorialuth extends game_view
 
         $horizontal_scale = 64.8;
         $vertical_scale = 64.4;
-        for( $x=1; $x<=8; $x++ )
-        {
-            for( $y=1; $y<=8; $y++ )
-            {
-                $this->page->insert_block( "square", array(
+        for ($x = 1; $x <= 8; $x++) {
+            for ($y = 1; $y <= 8; $y++) {
+                $this->page->insert_block('square', [
                     'X' => $x,
                     'Y' => $y,
-                    'LEFT' => round( ($x-1)*$horizontal_scale+10 ),
-                    'TOP' => round( ($y-1)*$vertical_scale+7 )
-                ) );
+                    'LEFT' => round(($x - 1) * $horizontal_scale + 10),
+                    'TOP' => round(($y - 1) * $vertical_scale + 7),
+                ]);
             }
         }
 
         /*********** Do not change anything below this line  ************/
-  	}
+    }
 }
