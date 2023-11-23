@@ -26,8 +26,11 @@
 -->
 
 
-<div style="text-align: center; width: 100%">Hello world!</div>
-
+<div id="board">
+    <!-- BEGIN square -->
+        <div id="square_{X}_{Y}" class="square" style="left: {LEFT}px; top: {TOP}px;"></div>
+    <!-- END square -->
+</div>
 
 <script type="text/javascript">
 

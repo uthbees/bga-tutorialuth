@@ -23,9 +23,9 @@
  * Note: if the HTML of your game interface is always the same, you don't have to place anything here.
  *
  */
-  
+
 require_once( APP_BASE_PATH."view/common/game.view.php" );
-  
+
 class view_tutorialuth_tutorialuth extends game_view
 {
     protected function getGameName()
@@ -33,9 +33,9 @@ class view_tutorialuth_tutorialuth extends game_view
         // Used for translations and stuff. Please do not modify.
         return "tutorialuth";
     }
-    
+
   	function build_page( $viewArgs )
-  	{		
+  	{
   	    // Get players & players number
         $players = $this->game->loadPlayersBasicInfos();
         $players_nbr = count( $players );
@@ -44,42 +44,57 @@ class view_tutorialuth_tutorialuth extends game_view
 
 
         /*
-        
+
         // Examples: set the value of some element defined in your tpl file like this: {MY_VARIABLE_ELEMENT}
 
         // Display a specific number / string
         $this->tpl['MY_VARIABLE_ELEMENT'] = $number_to_display;
 
-        // Display a string to be translated in all languages: 
+        // Display a string to be translated in all languages:
         $this->tpl['MY_VARIABLE_ELEMENT'] = self::_("A string to be translated");
 
         // Display some HTML content of your own:
         $this->tpl['MY_VARIABLE_ELEMENT'] = self::raw( $some_html_code );
-        
+
         */
-        
+
         /*
-        
+
         // Example: display a specific HTML block for each player in this game.
         // (note: the block is defined in your .tpl file like this:
-        //      <!-- BEGIN myblock --> 
+        //      <!-- BEGIN myblock -->
         //          ... my HTML code ...
-        //      <!-- END myblock --> 
-        
+        //      <!-- END myblock -->
+
 
         $this->page->begin_block( "tutorialuth_tutorialuth", "myblock" );
         foreach( $players as $player )
         {
-            $this->page->insert_block( "myblock", array( 
+            $this->page->insert_block( "myblock", array(
                                                     "PLAYER_NAME" => $player['player_name'],
                                                     "SOME_VARIABLE" => $some_value
                                                     ...
                                                      ) );
         }
-        
+
         */
 
+        $this->page->begin_block('tutorialuth_tutorialuth', 'square');
 
+        $horizontal_scale = 64.8;
+        $vertical_scale = 64.4;
+        for( $x=1; $x<=8; $x++ )
+        {
+            for( $y=1; $y<=8; $y++ )
+            {
+                $this->page->insert_block( "square", array(
+                    'X' => $x,
+                    'Y' => $y,
+                    'LEFT' => round( ($x-1)*$horizontal_scale+10 ),
+                    'TOP' => round( ($y-1)*$vertical_scale+7 )
+                ) );
+            }
+        }
 
         /*********** Do not change anything below this line  ************/
   	}
