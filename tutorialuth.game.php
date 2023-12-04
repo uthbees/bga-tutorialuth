@@ -47,7 +47,7 @@ class tutorialuth extends Table {
         setupNewGame:
 
         This method is called only once, when a new game is launched.
-        In this method, you must setup the game according to the game rules, so that
+        In this method, you must set up the game according to the game rules, so that
         the game is ready to be played.
     */
     protected function setupNewGame($players, $options = []) {
@@ -55,7 +55,7 @@ class tutorialuth extends Table {
         // The default below is red/green/blue/orange/brown
         // The number of colors defined here must correspond to the maximum number of players allowed for the gams
         $gameinfos = self::getGameinfos();
-        $default_colors = $gameinfos['player_colors'];
+        $default_colors = ['ffffff', '000000'];
 
         // Create players
         // Note: if you added some extra field on "player" table in the database (dbmodel.sql), you can initialize it there.
@@ -64,23 +64,13 @@ class tutorialuth extends Table {
         $values = [];
         foreach ($players as $player_id => $player) {
             $color = array_shift($default_colors);
-            $values[] =
-                "('" .
-                $player_id .
-                "','$color','" .
-                $player['player_canal'] .
-                "','" .
-                addslashes($player['player_name']) .
-                "','" .
-                addslashes($player['player_avatar']) .
-                "')";
+            $sanitized_player_name = addslashes($player['player_name']);
+            $sanitized_player_avatar = addslashes($player['player_avatar']);
+            $values[] = "('$player_id','$color','{$player['player_canal']}','$sanitized_player_name','$sanitized_player_avatar')";
         }
         $sql .= implode(',', $values);
         self::DbQuery($sql);
-        self::reattributeColorsBasedOnPreferences(
-            $players,
-            $gameinfos['player_colors'],
-        );
+        self::reattributeColorsBasedOnPreferences($players, $default_colors);
         self::reloadPlayersBasicInfos();
 
         /************ Start the game initialization *****/
@@ -129,7 +119,7 @@ class tutorialuth extends Table {
         getGameProgression:
 
         Compute and return the current game progression.
-        The number returned must be an integer beween 0 (=the game just started) and
+        The number returned must be an integer between 0 (=the game just started) and
         100 (= the game is finished or almost finished).
 
         This method is called each time we are in a game state with the "updateGameProgression" property set to true
@@ -264,7 +254,7 @@ class tutorialuth extends Table {
         }
 
         if ($state['type'] === 'multipleactiveplayer') {
-            // Make sure player is in a non blocking status for role turn
+            // Make sure player is in a non-blocking status for role turn
             $this->gamestate->setPlayerNonMultiactive($active_player, '');
 
             return;
