@@ -31,9 +31,6 @@
     </codeStyleSettings>
     <codeStyleSettings language="JavaScript">
       <option name="SOFT_MARGINS" value="80" />
-      <indentOptions>
-        <option name="KEEP_INDENTS_ON_EMPTY_LINES" value="true" />
-      </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="TypeScript">
       <option name="SOFT_MARGINS" value="80" />
