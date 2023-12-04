@@ -27,7 +27,7 @@
 require_once APP_BASE_PATH . 'view/common/game.view.php';
 
 class view_tutorialuth_tutorialuth extends game_view {
-    protected function getGameName() {
+    protected function getGameName(): string {
         // Used for translations and stuff. Please do not modify.
         return 'tutorialuth';
     }
@@ -57,7 +57,7 @@ class view_tutorialuth_tutorialuth extends game_view {
         /*
 
         // Example: display a specific HTML block for each player in this game.
-        // (note: the block is defined in your .tpl file like this:
+        // Note: the block is defined in your .tpl file like this:
         //      <!-- BEGIN myblock -->
         //          ... my HTML code ...
         //      <!-- END myblock -->
